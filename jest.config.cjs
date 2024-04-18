@@ -6,6 +6,5 @@ module.exports = {
     },
     testEnvironment: 'node',
     testRegex: './src/.*\\.test\\.ts',
-    moduleFileExtensions: ['ts', 'js', 'json', 'node'],
     roots: ['<rootDir>/src'],
 }
