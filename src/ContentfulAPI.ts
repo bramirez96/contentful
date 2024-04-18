@@ -14,17 +14,17 @@ export default class ContentfulAPI extends API<ContentfulAPISettings> {
     public entries: Entries;
     public links: Links;
 
-    protected _environment?: string;
-    protected _spaceID?: string;
-    protected _token?: string;
+    protected _environment: string;
+    protected _spaceID: string;
+    protected _token: string;
 
     constructor({
         environment,
         spaceID,
         token,
         ...settings
-    }: ContentfulAPISettings = {}) {
-        super(settings);
+    }: ContentfulAPISettings) {
+        super(settings as ContentfulAPISettings);
 
         this._environment = environment;
         this._spaceID = spaceID;
