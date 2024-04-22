@@ -10,29 +10,32 @@ import { ArrayResponse, SysTypes } from "./types";
  * and configuration specific to Contentful Delivery API requests.
  */
 export class ContentfulAPI extends API<ContentfulAPISettings> {
-    public assets: Assets;
-    public entries: Entries;
-    public links: Links;
-
-    protected _environment: string;
-    protected _spaceID: string;
+    public assets: Assets = new Assets(this);
+    public entries: Entries = new Entries(this);
+    public links: Links = new Links(this);
 
     constructor({
         environment,
         spaceID,
         token,
         headers = {},
+        apiType = "delivery",
         ...settings
     }: ContentfulAPISettings) {
-        if (token) headers["Authorization"] = `Bearer ${token}`;
-        super({ headers, ...settings } as ContentfulAPISettings);
+        if (token) {
+            headers["Authorization"] = `Bearer ${token}`;
+        }
 
-        this._environment = environment;
-        this._spaceID = spaceID;
+        const baseURL = {
+            delivery: "https://cdn.contentful.com",
+            preview: "https://preview.contentful.com",
+        }[apiType];
 
-        this.assets = new Assets(this);
-        this.entries = new Entries(this);
-        this.links = new Links(this);
+        super({
+            ...settings,
+            headers,
+            baseURL: `${baseURL}/spaces/${spaceID}/environments/${environment}`,
+        });
     }
 
     public isArrayResponse<ResourceType>(
@@ -42,13 +45,5 @@ export class ContentfulAPI extends API<ContentfulAPISettings> {
             typeof obj === "object" &&
             (obj as ArrayResponse<ResourceType>)?.sys?.type === SysTypes.Array
         );
-    }
-
-    protected _getURL<QueryType = unknown>(
-        path: string,
-        query?: QueryType,
-        baseURL: string = `${this._baseURL}/spaces/${this._spaceID}/environments/${this._environment}`,
-    ): string {
-        return super._getURL<QueryType>(path, query, baseURL);
     }
 }
