@@ -1,6 +1,6 @@
 // ! Copyright (c) 2024, Brandon Ramirez, brr.dev
 
-import { ContentfulAPI } from "../ContentfulAPI";
+import { ContentfulAPI } from "../ContentfulAPI.class";
 
 export default class _APIWrapperClass {
     public api: ContentfulAPI;
