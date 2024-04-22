@@ -9,7 +9,7 @@ import { ArrayResponse, SysTypes } from "./types";
  * A custom implementation of the base API class that adds additional handling
  * and configuration specific to Contentful Delivery API requests.
  */
-export default class ContentfulAPI extends API<ContentfulAPISettings> {
+export class ContentfulAPI extends API<ContentfulAPISettings> {
     public assets: Assets;
     public entries: Entries;
     public links: Links;

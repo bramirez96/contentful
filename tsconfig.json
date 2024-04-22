@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
-    "target": "ESNext",
-    "module": "ESNext",
+    "target": "ES2019",
+    "module": "CommonJS",
     "lib": ["DOM"],
     "declaration": true,
     "declarationMap": false,
@@ -15,7 +15,7 @@
     "esModuleInterop": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
-    "allowJs": false
+    "allowJs": false,
   },
   "include": ["./src/**/*"],
   "exclude": ["./src/**/*.test.ts"]
