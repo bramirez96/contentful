@@ -16,19 +16,19 @@ export class ContentfulAPI extends API<ContentfulAPISettings> {
 
     protected _environment: string;
     protected _spaceID: string;
-    protected _token: string;
 
     constructor({
         environment,
         spaceID,
         token,
+        headers = {},
         ...settings
     }: ContentfulAPISettings) {
-        super(settings as ContentfulAPISettings);
+        if (token) headers["Authorization"] = `Bearer ${token}`;
+        super({ headers, ...settings } as ContentfulAPISettings);
 
         this._environment = environment;
         this._spaceID = spaceID;
-        this._token = token;
 
         this.assets = new Assets(this);
         this.entries = new Entries(this);
