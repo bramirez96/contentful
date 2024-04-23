@@ -1,10 +1,10 @@
 // ! Copyright (c) 2024, Brandon Ramirez, brr.dev
 
 import {
-    _GetEntriesByQueryInput,
+    _RawGetEntriesByParams,
     ArrayResponse,
     Entry,
-    GetEntriesByParams,
+    GetEntriesByQueryInput,
     ResourceTypes,
 } from "../types";
 import _APIWrapperClass from "./_APIWrapperClass";
@@ -22,7 +22,7 @@ export default class Entries extends _APIWrapperClass {
      * input parameters.
      */
     public getList<EntryType>(
-        query: _GetEntriesByQueryInput = {},
+        query: GetEntriesByQueryInput = {},
     ): Promise<ArrayResponse<EntryType>> {
         return this.api.get<never, ArrayResponse<EntryType>, unknown>(
             "/entries",
@@ -45,8 +45,8 @@ export default class Entries extends _APIWrapperClass {
         hasAllTags,
         hasTags,
         ...inputParams
-    }: _GetEntriesByQueryInput = {}): GetEntriesByParams {
-        const resParams: GetEntriesByParams = inputParams;
+    }: GetEntriesByQueryInput = {}): _RawGetEntriesByParams {
+        const resParams: _RawGetEntriesByParams = inputParams;
 
         if (contentType) {
             resParams.content_type = contentType;

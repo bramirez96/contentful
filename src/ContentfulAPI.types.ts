@@ -2,6 +2,12 @@
 
 import { APISettings } from "@brr-dev/api";
 
+export type ContentfulAPITypeDelivery = "delivery";
+export type ContentfulAPITypePreview = "preview";
+export type ContentfulAPITypes =
+    | ContentfulAPITypeDelivery
+    | ContentfulAPITypePreview;
+
 export type ContentfulAPISettings = Omit<APISettings, "baseURL"> & {
     /** Contentful Space ID */
     spaceID: string;
@@ -13,5 +19,5 @@ export type ContentfulAPISettings = Omit<APISettings, "baseURL"> & {
     token: string;
 
     /** Contentful API Type: "preview" or "delivery" */
-    apiType?: "preview" | "delivery";
+    apiType?: ContentfulAPITypes;
 };
