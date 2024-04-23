@@ -1,9 +1,9 @@
 // ! Copyright (c) 2024, Brandon Ramirez, brr.dev
 
 import { API } from "@brr-dev/api";
-import { ContentfulAPISettings } from "./ContentfulAPI.types";
-import { Assets, Entries, Links } from "./api";
-import { ArrayResponse, SysTypes } from "./types";
+import { ContentfulAPISettings } from "../ContentfulAPI.types";
+import { Assets, Entries, Links } from "../api";
+import { ArrayResponse, SysTypes } from "../types";
 
 /**
  * A custom implementation of the base API class that adds additional handling
