@@ -1,6 +1,6 @@
 // ! Copyright (c) 2024, Brandon Ramirez, brr.dev
 
-import { ContentfulAPI } from "../index";
+import { ContentfulAPI } from "../classes";
 
 describe("ContentfulAPI tests", () => {
     it("builds without error", () => {
