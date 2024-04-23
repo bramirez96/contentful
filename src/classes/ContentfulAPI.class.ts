@@ -2,8 +2,10 @@
 
 import { API } from "@brr-dev/api";
 import { ContentfulAPISettings } from "../ContentfulAPI.types";
-import { Assets, Entries, Links } from "../api";
 import { ArrayResponse, SysTypes } from "../types";
+import Assets from "../api/assets";
+import Entries from "../api/entries";
+import Links from "../api/links";
 
 /**
  * A custom implementation of the base API class that adds additional handling

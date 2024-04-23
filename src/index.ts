@@ -3,8 +3,4 @@
 export * from "./api";
 export * from "./types";
 export * from "./ContentfulAPI.types";
-export {
-    ContentfulAPI,
-    ContentfulPreviewAPI,
-    ContentfulDeliveryAPI,
-} from "./classes";
+export * from "./classes";
